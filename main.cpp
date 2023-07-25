@@ -247,7 +247,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 #else
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+   // QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 #ifdef Q_OS_LINUX
     signal(SIGINT, m_cleanup);
