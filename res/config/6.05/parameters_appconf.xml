@@ -17,7 +17,7 @@ p, li { white-space: pre-wrap; }
             <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
-            <valInt>74</valInt>
+            <valInt>93</valInt>
             <suffix></suffix>
             <vTx>1</vTx>
         </controller_id>
@@ -455,7 +455,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The APP to use. With multiple VESC connected over CAN only the master needs to have an app to use set up. Notice that using the NRF nunchuk needs the NRF app.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_APP_TO_USE</cDefine>
-            <valInt>3</valInt>
+            <valInt>10</valInt>
             <enumNames>No App</enumNames>
             <enumNames>PPM</enumNames>
             <enumNames>ADC</enumNames>
@@ -1033,7 +1033,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>0.05</valDouble>
+            <valDouble>0.15</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> %</suffix>
             <vTx>9</vTx>
@@ -1055,7 +1055,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>0.6</valDouble>
+            <valDouble>0.92</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1077,7 +1077,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>2.54</valDouble>
+            <valDouble>3</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1121,7 +1121,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>3.6</valDouble>
+            <valDouble>3.5</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1145,7 +1145,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>0.6</valDouble>
+            <valDouble>2</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1167,7 +1167,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>0</valDouble>
+            <valDouble>3.3</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1189,7 +1189,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>2</valDouble>
+            <valDouble>0</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1288,7 +1288,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Roboto';&quot;&gt;Invert the voltage from ADC2.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_ADC_VOLTAGE2_INVERTED</cDefine>
-            <valInt>1</valInt>
+            <valInt>0</valInt>
         </app_adc_conf.voltage2_inverted>
         <app_adc_conf.throttle_exp>
             <longName>Throttle Expo</longName>
@@ -1318,7 +1318,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>-5</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>-0.5</valDouble>
+            <valDouble>0</valDouble>
             <vTxDoubleScale>1</vTxDoubleScale>
             <suffix></suffix>
             <vTx>9</vTx>
@@ -1538,7 +1538,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Roboto'; font-weight:600;&quot;&gt;Current Bidirectional&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Roboto';&quot;&gt;Current control. The output is off when the joystick is centered. Positive input always gives forward current and negative current always gives reverse current. This means that when current is applied through 0 speed, the motor will accelerate in the other direction.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_CHUK_CTRL_TYPE</cDefine>
-            <valInt>1</valInt>
+            <valInt>0</valInt>
             <enumNames>Off</enumNames>
             <enumNames>Current</enumNames>
             <enumNames>Current No Reverse</enumNames>
@@ -2038,10 +2038,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Constant Torque&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Constant Torque control. Pedalling provides constant output, off when no pedalling. Suited for gearless setup.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_PAS_CTRL_TYPE</cDefine>
-            <valInt>1</valInt>
+            <valInt>2</valInt>
             <enumNames>Off</enumNames>
+            <enumNames>Basic</enumNames>
+            <enumNames>Hall torque</enumNames>
             <enumNames>Cadence</enumNames>
-            <enumNames>Constant Torque</enumNames>
+            <enumNames>Torque sensor</enumNames>
+            <enumNames>CAN Torque sensor</enumNames>
+            <enumNames>CAN Torque sensor with timeout</enumNames>
         </app_pas_conf.ctrl_type>
         <app_pas_conf.sensor_type>
             <longName>Sensor Type</longName>
@@ -2054,8 +2058,9 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Quadrature&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This interface provides 2 signals that can be decoded to know the pedalling direction (forward of backwards).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_PAS_SENSOR_TYPE</cDefine>
-            <valInt>0</valInt>
-            <enumNames>Quadrature</enumNames>
+            <valInt>1</valInt>
+            <enumNames>3 Wires</enumNames>
+            <enumNames>Quadrature </enumNames>
         </app_pas_conf.sensor_type>
         <app_pas_conf.pedal_rpm_start>
             <longName>Pedal RPM Start</longName>
@@ -2074,7 +2079,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>1</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>10</valDouble>
+            <valDouble>4</valDouble>
             <vTxDoubleScale>10</vTxDoubleScale>
             <suffix></suffix>
             <vTx>7</vTx>
@@ -2096,7 +2101,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>1</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>120</valDouble>
+            <valDouble>180</valDouble>
             <vTxDoubleScale>10</vTxDoubleScale>
             <suffix></suffix>
             <vTx>7</vTx>
@@ -2111,7 +2116,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Inverts pedal direction&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_PAS_INVERT_PEDAL_DIRECTION</cDefine>
-            <valInt>0</valInt>
+            <valInt>1</valInt>
         </app_pas_conf.invert_pedal_direction>
         <app_pas_conf.magnets>
             <longName>Sensor Magnets</longName>
@@ -2146,6 +2151,26 @@ p, li { white-space: pre-wrap; }
             <cDefine>APPCONF_PAS_USE_FILTER</cDefine>
             <valInt>1</valInt>
         </app_pas_conf.use_filter>
+        <app_pas_conf.update_rate_hz>
+            <longName>Update Rate</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Roboto';&quot;&gt;Frequency at which the PAS control loop is executed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_UPDATE_RATE_HZ</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000</maxInt>
+            <minInt>10</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10</stepInt>
+            <valInt>500</valInt>
+            <suffix> Hz</suffix>
+            <vTx>3</vTx>
+        </app_pas_conf.update_rate_hz>
         <app_pas_conf.current_scaling>
             <longName>PAS Max Current</longName>
             <type>1</type>
@@ -2163,7 +2188,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.05</stepDouble>
-            <valDouble>0.08</valDouble>
+            <valDouble>1</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix></suffix>
             <vTx>7</vTx>
@@ -2185,7 +2210,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0.2</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.05</stepDouble>
-            <valDouble>0.3</valDouble>
+            <valDouble>1.6</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
             <suffix> s</suffix>
             <vTx>7</vTx>
@@ -2207,31 +2232,223 @@ p, li { white-space: pre-wrap; }
             <minDouble>0.2</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.05</stepDouble>
-            <valDouble>0.2</valDouble>
+            <valDouble>0.3</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
             <suffix> s</suffix>
             <vTx>7</vTx>
         </app_pas_conf.ramp_time_neg>
-        <app_pas_conf.update_rate_hz>
-            <longName>Update Rate</longName>
-            <type>2</type>
+        <app_pas_conf.ramp_time_brakes_pos>
+            <longName>Positive Braking Ramping Time</longName>
+            <type>1</type>
             <transmittable>1</transmittable>
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Roboto';&quot;&gt;Frequency at which the PAS control loop is executed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>APPCONF_PAS_UPDATE_RATE_HZ</cDefine>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Positive ramping time constant. This filters the BRAKES input with ramping and represents the amount of secods it takes to ramp from zero to full output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_RAMP_TIME_BRAKES_POS</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxInt>1000</maxInt>
-            <minInt>10</minInt>
+            <maxDouble>5</maxDouble>
+            <minDouble>0.2</minDouble>
             <showDisplay>0</showDisplay>
-            <stepInt>10</stepInt>
-            <valInt>500</valInt>
-            <suffix> Hz</suffix>
-            <vTx>3</vTx>
-        </app_pas_conf.update_rate_hz>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>1.6</valDouble>
+            <vTxDoubleScale>100</vTxDoubleScale>
+            <suffix> s</suffix>
+            <vTx>7</vTx>
+        </app_pas_conf.ramp_time_brakes_pos>
+        <app_pas_conf.ramp_time_brakes_neg>
+            <longName>Negative Braking Ramping Time</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Negative ramping time constant. This filters the BRAKES input with ramping and represents the amount of secods it takes to ramp from zero to full braking.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_RAMP_TIME_BRAKES_NEG</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>5</maxDouble>
+            <minDouble>0.2</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.3</valDouble>
+            <vTxDoubleScale>100</vTxDoubleScale>
+            <suffix> s</suffix>
+            <vTx>7</vTx>
+        </app_pas_conf.ramp_time_brakes_neg>
+        <app_pas_conf.pas_max_speed>
+            <longName>Speed Limit</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_MAX_SPEED_MS</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>9999</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>1</showDisplay>
+            <stepDouble>0.1</stepDouble>
+            <valDouble>6.9</valDouble>
+            <vTxDoubleScale>100</vTxDoubleScale>
+            <suffix> m/s</suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_max_speed>
+        <app_pas_conf.pas_use_adc>
+            <longName>PAS Overide ADC</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_USE_ADC</cDefine>
+            <valInt>1</valInt>
+        </app_pas_conf.pas_use_adc>
+        <app_pas_conf.pas_pid_kp>
+            <longName>Speed PID - KP </longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_PID_KP</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>999</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.001</stepDouble>
+            <valDouble>0</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_pid_kp>
+        <app_pas_conf.pas_pid_ki>
+            <longName>Speed PID - KI </longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_PID_KI</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>999</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.001</stepDouble>
+            <valDouble>0</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_pid_ki>
+        <app_pas_conf.pas_pid_kd>
+            <longName>Speed PID - KD</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_PID_KD</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>999</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.001</stepDouble>
+            <valDouble>0</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_pid_kd>
+        <app_pas_conf.pas_has_regen>
+            <longName>Brakes have Regen</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_HAS_REGEN</cDefine>
+            <valInt>0</valInt>
+        </app_pas_conf.pas_has_regen>
+        <app_pas_conf.pas_brake_delay>
+            <longName>Brakes Timeout</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_BRAKE_DELAY</cDefine>
+            <editorDecimalsDouble>0</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>99999</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>1</stepDouble>
+            <valDouble>100</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix> ms</suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_brake_delay>
+        <app_pas_conf.pas_brake_voltage_trigger>
+            <longName>Brakes voltage trigger</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_BRAKE_VOLTAGE_TRIGGER</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>33</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.01</stepDouble>
+            <valDouble>2.5</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix> V</suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_brake_voltage_trigger>
+        <app_pas_conf.pas_brake_voltage_inverted>
+            <longName>Brakes have inverted voltage</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_BRAKE_VOLTAGE_INVERTED</cDefine>
+            <valInt>1</valInt>
+        </app_pas_conf.pas_brake_voltage_inverted>
         <imu_conf.type>
             <longName>IMU Type</longName>
             <type>4</type>
@@ -2275,7 +2492,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the onboard accel/gyro filters.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_IMU_FILTER</cDefine>
-            <valInt>0</valInt>
+            <valInt>1</valInt>
             <enumNames>IMU_FILTER_LOW</enumNames>
             <enumNames>IMU_FILTER_MEDIUM</enumNames>
             <enumNames>IMU_FILTER_HIGH</enumNames>
@@ -2792,15 +3009,26 @@ p, li { white-space: pre-wrap; }
         <ser>app_nrf_conf.send_crc_ack</ser>
         <ser>app_pas_conf.ctrl_type</ser>
         <ser>app_pas_conf.sensor_type</ser>
-        <ser>app_pas_conf.current_scaling</ser>
         <ser>app_pas_conf.pedal_rpm_start</ser>
         <ser>app_pas_conf.pedal_rpm_end</ser>
         <ser>app_pas_conf.invert_pedal_direction</ser>
         <ser>app_pas_conf.magnets</ser>
         <ser>app_pas_conf.use_filter</ser>
+        <ser>app_pas_conf.update_rate_hz</ser>
+        <ser>app_pas_conf.current_scaling</ser>
         <ser>app_pas_conf.ramp_time_pos</ser>
         <ser>app_pas_conf.ramp_time_neg</ser>
-        <ser>app_pas_conf.update_rate_hz</ser>
+        <ser>app_pas_conf.ramp_time_brakes_pos</ser>
+        <ser>app_pas_conf.ramp_time_brakes_neg</ser>
+        <ser>app_pas_conf.pas_max_speed</ser>
+        <ser>app_pas_conf.pas_use_adc</ser>
+        <ser>app_pas_conf.pas_pid_kp</ser>
+        <ser>app_pas_conf.pas_pid_ki</ser>
+        <ser>app_pas_conf.pas_pid_kd</ser>
+        <ser>app_pas_conf.pas_has_regen</ser>
+        <ser>app_pas_conf.pas_brake_delay</ser>
+        <ser>app_pas_conf.pas_brake_voltage_trigger</ser>
+        <ser>app_pas_conf.pas_brake_voltage_inverted</ser>
         <ser>imu_conf.type</ser>
         <ser>imu_conf.mode</ser>
         <ser>imu_conf.filter</ser>
@@ -3032,17 +3260,32 @@ p, li { white-space: pre-wrap; }
             <subgroup>
                 <subgroupName>General</subgroupName>
                 <subgroupParams>
-                    <param>app_pas_conf.ctrl_type</param>
+                    <param>::sep::Hardware</param>
                     <param>app_pas_conf.sensor_type</param>
+                    <param>app_pas_conf.magnets</param>
+                    <param>app_pas_conf.update_rate_hz</param>
+                    <param>app_pas_conf.invert_pedal_direction</param>
+                    <param>::sep::Handling</param>
+                    <param>app_pas_conf.ctrl_type</param>
+                    <param>app_pas_conf.pas_use_adc</param>
+                    <param>app_pas_conf.use_filter</param>
                     <param>app_pas_conf.pedal_rpm_start</param>
                     <param>app_pas_conf.pedal_rpm_end</param>
-                    <param>app_pas_conf.invert_pedal_direction</param>
-                    <param>app_pas_conf.magnets</param>
-                    <param>app_pas_conf.use_filter</param>
                     <param>app_pas_conf.current_scaling</param>
                     <param>app_pas_conf.ramp_time_pos</param>
                     <param>app_pas_conf.ramp_time_neg</param>
-                    <param>app_pas_conf.update_rate_hz</param>
+                    <param>::sep::Brakes</param>
+                    <param>app_pas_conf.pas_has_regen</param>
+                    <param>app_pas_conf.pas_brake_delay</param>
+                    <param>app_pas_conf.pas_brake_voltage_trigger</param>
+                    <param>app_pas_conf.pas_brake_voltage_inverted</param>
+                    <param>app_pas_conf.ramp_time_brakes_pos</param>
+                    <param>app_pas_conf.ramp_time_brakes_neg</param>
+                    <param>::sep::Speed Limiting</param>
+                    <param>app_pas_conf.pas_max_speed</param>
+                    <param>app_pas_conf.pas_pid_kp</param>
+                    <param>app_pas_conf.pas_pid_ki</param>
+                    <param>app_pas_conf.pas_pid_kd</param>
                 </subgroupParams>
             </subgroup>
         </group>
