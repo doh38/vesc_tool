@@ -1,4 +1,4 @@
-# VESC Firmware for Ebike 
+# VESC_TOOL for new pass app Ebike firmware 
 ![Screenshot from 2023-07-25 21-04-25](https://github.com/doh38/bldc/assets/42808575/02c4454c-d68e-40b2-ac1a-39794b5f5d9a)
 
 This is a better implementation of the PAS_app, it includes:
