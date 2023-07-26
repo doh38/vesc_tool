@@ -1,3 +1,26 @@
+# VESC Firmware for Ebike 
+![Screenshot from 2023-07-25 21-04-25](https://github.com/doh38/bldc/assets/42808575/02c4454c-d68e-40b2-ac1a-39794b5f5d9a)
+
+This is a better implementation of the PAS_app, it includes:
+- 3 wire pas support
+- 4 wires (quadrature) support
+- 4 wires with torque sensor by hall dephasing support 
+- 3&4 wires + torque sensor come in a few (WIP right now and will first use the throttle input)
+- new PAS handlings (BASIC, HALL TORQUE, CADENCE, TORQUE SENSOR, CAN TORUE SENSOR)
+- speed limit (little PID) in the PAS app which use current to reduce speed (I ditched the rpm ratio thing as it was unreliable and too complicated) 
+- external speed sensor speed support
+- brake support (especially for mid motors right now) with separated ramping 
+- faster PAS which takes pedal rpm to calculate time out
+- Modified adc-pas implementation to re-route adc in the pas app (and benefit from adc setup but also from speed limit)
+- Most of the settings/parameters are accessible in LISP
+- And of course full Eggrider suppor (Fw 2.7+ so you will need to wait or contact us directly), with level of assist, speed limit change per assist level, standard power/current/regen...etc settings directly from app (similar to what we have for ASI right now)
+- Specific HW conf for the FS-75200 (which is one of my test VESC)
+
+All of this is totally WIP right now, but should stable really soon. 
+Updates will be referenced here.
+
+
+
 # VESC® Tool
 
 This is the source code of VESC Tool. A pre-compiled binary of both the stable release as well as the development release packaged with all the matching firmware for all supported hardware can be downloaded at http://vesc-project.com/
