@@ -2281,6 +2281,68 @@ p, li { white-space: pre-wrap; }
             <suffix> s</suffix>
             <vTx>7</vTx>
         </app_pas_conf.ramp_time_brakes_neg>
+        <app_pas_conf.pas_hall_torque_samples>
+            <longName>Number of Hall samples to filter signal</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_HALL_TORQUE_SAMPLES</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>99</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>8</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </app_pas_conf.pas_hall_torque_samples>
+        <app_pas_conf.pas_hall_torque_offset>
+            <longName>Torque Hall Offset</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This is the calibration for the Hall offset when the torque is at zero.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_HALL_TORQUE_OFFSET</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>999</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>31</valInt>
+            <suffix></suffix>
+            <vTx>3</vTx>
+        </app_pas_conf.pas_hall_torque_offset>
+        <app_pas_conf.pas_hall_torque_gain>
+            <longName>Torque Hall proportional gain</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Torque Hall proportional gain, increase or decrease the sentivity&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_HALL_TORQUE_GAIN</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>100</maxDouble>
+            <minDouble>1</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>5</valDouble>
+            <vTxDoubleScale>100</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_hall_torque_gain>
         <app_pas_conf.pas_max_speed>
             <longName>Speed Limit</longName>
             <type>1</type>
@@ -2315,6 +2377,28 @@ p, li { white-space: pre-wrap; }
             <cDefine>APPCONF_PAS_USE_ADC</cDefine>
             <valInt>1</valInt>
         </app_pas_conf.pas_use_adc>
+        <app_pas_conf.pas_pid_start_percent>
+            <longName>PID Percent Of Goal Speed Start</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Negative ramping time constant. This filters the BRAKES input with ramping and represents the amount of secods it takes to ramp from zero to full braking.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_PID_START</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0.2</minDouble>
+            <showDisplay>1</showDisplay>
+            <stepDouble>0.01</stepDouble>
+            <valDouble>0.2</valDouble>
+            <vTxDoubleScale>100</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </app_pas_conf.pas_pid_start_percent>
         <app_pas_conf.pas_pid_kp>
             <longName>Speed PID - KP </longName>
             <type>1</type>
@@ -3020,8 +3104,12 @@ p, li { white-space: pre-wrap; }
         <ser>app_pas_conf.ramp_time_neg</ser>
         <ser>app_pas_conf.ramp_time_brakes_pos</ser>
         <ser>app_pas_conf.ramp_time_brakes_neg</ser>
+        <ser>app_pas_conf.pas_hall_torque_samples</ser>
+        <ser>app_pas_conf.pas_hall_torque_offset</ser>
+        <ser>app_pas_conf.pas_hall_torque_gain</ser>
         <ser>app_pas_conf.pas_max_speed</ser>
         <ser>app_pas_conf.pas_use_adc</ser>
+        <ser>app_pas_conf.pas_pid_start_percent</ser>
         <ser>app_pas_conf.pas_pid_kp</ser>
         <ser>app_pas_conf.pas_pid_ki</ser>
         <ser>app_pas_conf.pas_pid_kd</ser>
@@ -3274,6 +3362,10 @@ p, li { white-space: pre-wrap; }
                     <param>app_pas_conf.current_scaling</param>
                     <param>app_pas_conf.ramp_time_pos</param>
                     <param>app_pas_conf.ramp_time_neg</param>
+                    <param>::sep::Hall Torque</param>
+                    <param>app_pas_conf.pas_hall_torque_samples</param>
+                    <param>app_pas_conf.pas_hall_torque_offset</param>
+                    <param>app_pas_conf.pas_hall_torque_gain</param>
                     <param>::sep::Brakes</param>
                     <param>app_pas_conf.pas_has_regen</param>
                     <param>app_pas_conf.pas_brake_delay</param>
@@ -3283,6 +3375,7 @@ p, li { white-space: pre-wrap; }
                     <param>app_pas_conf.ramp_time_brakes_neg</param>
                     <param>::sep::Speed Limiting</param>
                     <param>app_pas_conf.pas_max_speed</param>
+                    <param>app_pas_conf.pas_pid_start_percent</param>
                     <param>app_pas_conf.pas_pid_kp</param>
                     <param>app_pas_conf.pas_pid_ki</param>
                     <param>app_pas_conf.pas_pid_kd</param>
