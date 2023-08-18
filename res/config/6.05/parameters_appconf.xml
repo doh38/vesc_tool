@@ -17,7 +17,7 @@ p, li { white-space: pre-wrap; }
             <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
-            <valInt>93</valInt>
+            <valInt>70</valInt>
             <suffix></suffix>
             <vTx>1</vTx>
         </controller_id>
@@ -455,7 +455,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The APP to use. With multiple VESC connected over CAN only the master needs to have an app to use set up. Notice that using the NRF nunchuk needs the NRF app.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_APP_TO_USE</cDefine>
-            <valInt>10</valInt>
+            <valInt>3</valInt>
             <enumNames>No App</enumNames>
             <enumNames>PPM</enumNames>
             <enumNames>ADC</enumNames>
@@ -999,7 +999,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PID Speed Reverse Button&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PID speed control with a button for reversing the throttle. The speed setpoint is mapped between 0 and the configured maximum motor speed limit, or between 0 and the minimum motor speed limit when the UART RX input is high.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_ADC_CTRL_TYPE</cDefine>
-            <valInt>8</valInt>
+            <valInt>0</valInt>
             <enumNames>Off</enumNames>
             <enumNames>Current</enumNames>
             <enumNames>Current Reverse Center</enumNames>
@@ -1055,7 +1055,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>0.92</valDouble>
+            <valDouble>0.9</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1167,7 +1167,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>3.3</valDouble>
+            <valDouble>0.9</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -1189,7 +1189,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
-            <valDouble>0</valDouble>
+            <valDouble>3</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix> V</suffix>
             <vTx>7</vTx>
@@ -2038,7 +2038,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Constant Torque&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Constant Torque control. Pedalling provides constant output, off when no pedalling. Suited for gearless setup.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_PAS_CTRL_TYPE</cDefine>
-            <valInt>2</valInt>
+            <valInt>0</valInt>
             <enumNames>Off</enumNames>
             <enumNames>Basic</enumNames>
             <enumNames>Hall torque</enumNames>
@@ -2058,7 +2058,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Quadrature&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This interface provides 2 signals that can be decoded to know the pedalling direction (forward of backwards).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_PAS_SENSOR_TYPE</cDefine>
-            <valInt>1</valInt>
+            <valInt>0</valInt>
             <enumNames>3 Wires</enumNames>
             <enumNames>Quadrature </enumNames>
         </app_pas_conf.sensor_type>
@@ -2079,7 +2079,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>1</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
-            <valDouble>4</valDouble>
+            <valDouble>10</valDouble>
             <vTxDoubleScale>10</vTxDoubleScale>
             <suffix></suffix>
             <vTx>7</vTx>
@@ -2116,7 +2116,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Inverts pedal direction&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>APPCONF_PAS_INVERT_PEDAL_DIRECTION</cDefine>
-            <valInt>1</valInt>
+            <valInt>0</valInt>
         </app_pas_conf.invert_pedal_direction>
         <app_pas_conf.magnets>
             <longName>Sensor Magnets</longName>
@@ -2188,7 +2188,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.05</stepDouble>
-            <valDouble>1</valDouble>
+            <valDouble>0.1</valDouble>
             <vTxDoubleScale>1000</vTxDoubleScale>
             <suffix></suffix>
             <vTx>7</vTx>
@@ -2210,7 +2210,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0.2</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.05</stepDouble>
-            <valDouble>1.6</valDouble>
+            <valDouble>0.6</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
             <suffix> s</suffix>
             <vTx>7</vTx>
@@ -2254,7 +2254,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0.2</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.05</stepDouble>
-            <valDouble>1.6</valDouble>
+            <valDouble>0.6</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
             <suffix> s</suffix>
             <vTx>7</vTx>
@@ -2281,26 +2281,6 @@ p, li { white-space: pre-wrap; }
             <suffix> s</suffix>
             <vTx>7</vTx>
         </app_pas_conf.ramp_time_brakes_neg>
-        <app_pas_conf.pas_hall_torque_samples>
-            <longName>Number of Hall samples to filter signal</longName>
-            <type>2</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TODO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>APPCONF_PAS_HALL_TORQUE_SAMPLES</cDefine>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxInt>99</maxInt>
-            <minInt>1</minInt>
-            <showDisplay>0</showDisplay>
-            <stepInt>1</stepInt>
-            <valInt>8</valInt>
-            <suffix></suffix>
-            <vTx>1</vTx>
-        </app_pas_conf.pas_hall_torque_samples>
         <app_pas_conf.pas_hall_torque_offset>
             <longName>Torque Hall Offset</longName>
             <type>2</type>
@@ -2321,8 +2301,8 @@ p, li { white-space: pre-wrap; }
             <suffix></suffix>
             <vTx>3</vTx>
         </app_pas_conf.pas_hall_torque_offset>
-        <app_pas_conf.pas_hall_torque_gain>
-            <longName>Torque Hall proportional gain</longName>
+        <app_pas_conf.pas_torque_gain>
+            <longName>Torque proportional gain</longName>
             <type>1</type>
             <transmittable>1</transmittable>
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -2330,19 +2310,19 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Torque Hall proportional gain, increase or decrease the sentivity&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>APPCONF_PAS_HALL_TORQUE_GAIN</cDefine>
+            <cDefine>APPCONF_PAS_TORQUE_GAIN</cDefine>
             <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
             <maxDouble>100</maxDouble>
-            <minDouble>1</minDouble>
+            <minDouble>0.01</minDouble>
             <showDisplay>0</showDisplay>
-            <stepDouble>0.05</stepDouble>
+            <stepDouble>0.01</stepDouble>
             <valDouble>5</valDouble>
             <vTxDoubleScale>100</vTxDoubleScale>
             <suffix></suffix>
             <vTx>9</vTx>
-        </app_pas_conf.pas_hall_torque_gain>
+        </app_pas_conf.pas_torque_gain>
         <app_pas_conf.pas_max_speed>
             <longName>Speed Limit</longName>
             <type>1</type>
@@ -2391,7 +2371,7 @@ p, li { white-space: pre-wrap; }
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
             <maxDouble>1</maxDouble>
-            <minDouble>0.2</minDouble>
+            <minDouble>0.01</minDouble>
             <showDisplay>1</showDisplay>
             <stepDouble>0.01</stepDouble>
             <valDouble>0.2</valDouble>
@@ -2416,7 +2396,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.001</stepDouble>
-            <valDouble>0</valDouble>
+            <valDouble>0.01</valDouble>
             <vTxDoubleScale>1</vTxDoubleScale>
             <suffix></suffix>
             <vTx>9</vTx>
@@ -2438,7 +2418,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.001</stepDouble>
-            <valDouble>0</valDouble>
+            <valDouble>0.01</valDouble>
             <vTxDoubleScale>1</vTxDoubleScale>
             <suffix></suffix>
             <vTx>9</vTx>
@@ -2460,7 +2440,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>0</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.001</stepDouble>
-            <valDouble>0</valDouble>
+            <valDouble>0.01</valDouble>
             <vTxDoubleScale>1</vTxDoubleScale>
             <suffix></suffix>
             <vTx>9</vTx>
@@ -2533,6 +2513,72 @@ p, li { white-space: pre-wrap; }
             <cDefine>APPCONF_PAS_BRAKE_VOLTAGE_INVERTED</cDefine>
             <valInt>1</valInt>
         </app_pas_conf.pas_brake_voltage_inverted>
+        <app_pas_conf.pas_torque_linear_factor>
+            <longName>PAS Torque Linear Factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Change torque sensor linearity&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_TORQUE_LINEAR_FACTOR</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>1</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0.01</minDouble>
+            <showDisplay>1</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.5</valDouble>
+            <vTxDoubleScale>1000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>7</vTx>
+        </app_pas_conf.pas_torque_linear_factor>
+        <app_pas_conf.pas_pedal_linear_factor>
+            <longName>PAS Pedal Linear Factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Change Pedal sensor (cadence) linearity&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_TORQUE_LINEAR_FACTOR</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>1</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0.01</minDouble>
+            <showDisplay>1</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.5</valDouble>
+            <vTxDoubleScale>1000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>7</vTx>
+        </app_pas_conf.pas_pedal_linear_factor>
+        <app_pas_conf.pas_pedal_torque_ratio>
+            <longName>PAS Peda/Torque Ratio</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Change Pedal / Torque incidence ratio&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>APPCONF_PAS_PEDAL_TORQUE_RATIO</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>1</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0.01</minDouble>
+            <showDisplay>1</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.5</valDouble>
+            <vTxDoubleScale>1000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>7</vTx>
+        </app_pas_conf.pas_pedal_torque_ratio>
         <imu_conf.type>
             <longName>IMU Type</longName>
             <type>4</type>
@@ -3104,9 +3150,8 @@ p, li { white-space: pre-wrap; }
         <ser>app_pas_conf.ramp_time_neg</ser>
         <ser>app_pas_conf.ramp_time_brakes_pos</ser>
         <ser>app_pas_conf.ramp_time_brakes_neg</ser>
-        <ser>app_pas_conf.pas_hall_torque_samples</ser>
         <ser>app_pas_conf.pas_hall_torque_offset</ser>
-        <ser>app_pas_conf.pas_hall_torque_gain</ser>
+        <ser>app_pas_conf.pas_torque_gain</ser>
         <ser>app_pas_conf.pas_max_speed</ser>
         <ser>app_pas_conf.pas_use_adc</ser>
         <ser>app_pas_conf.pas_pid_start_percent</ser>
@@ -3117,6 +3162,9 @@ p, li { white-space: pre-wrap; }
         <ser>app_pas_conf.pas_brake_delay</ser>
         <ser>app_pas_conf.pas_brake_voltage_trigger</ser>
         <ser>app_pas_conf.pas_brake_voltage_inverted</ser>
+        <ser>app_pas_conf.pas_torque_linear_factor</ser>
+        <ser>app_pas_conf.pas_pedal_linear_factor</ser>
+        <ser>app_pas_conf.pas_pedal_torque_ratio</ser>
         <ser>imu_conf.type</ser>
         <ser>imu_conf.mode</ser>
         <ser>imu_conf.filter</ser>
@@ -3362,10 +3410,12 @@ p, li { white-space: pre-wrap; }
                     <param>app_pas_conf.current_scaling</param>
                     <param>app_pas_conf.ramp_time_pos</param>
                     <param>app_pas_conf.ramp_time_neg</param>
-                    <param>::sep::Hall Torque</param>
-                    <param>app_pas_conf.pas_hall_torque_samples</param>
+                    <param>::sep::Torque Sensor</param>
                     <param>app_pas_conf.pas_hall_torque_offset</param>
-                    <param>app_pas_conf.pas_hall_torque_gain</param>
+                    <param>app_pas_conf.pas_torque_gain</param>
+                    <param>app_pas_conf.pas_torque_linear_factor</param>
+                    <param>app_pas_conf.pas_pedal_linear_factor</param>
+                    <param>app_pas_conf.pas_pedal_torque_ratio</param>
                     <param>::sep::Brakes</param>
                     <param>app_pas_conf.pas_has_regen</param>
                     <param>app_pas_conf.pas_brake_delay</param>
