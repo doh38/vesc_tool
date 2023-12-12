@@ -121,6 +121,7 @@ PageLogAnalysis::PageLogAnalysis(QWidget *parent) :
     mGnssTimer->start(100);
     mGnssMsTodayLast = 0;
 
+    mLogRtFieldUpdatePending = false;
     mLogRtAppendTime = false;
     mLogRtTimer = new QTimer(this);
 
@@ -259,6 +260,10 @@ void PageLogAnalysis::setVesc(VescInterface *vesc)
 
     if (mVesc) {
         auto updatePlots = [this]() {
+            if (mLogRtFieldUpdatePending) {
+                return;
+            }
+
             storeSelection();
 
             resetInds();
@@ -314,6 +319,7 @@ void PageLogAnalysis::setVesc(VescInterface *vesc)
                 mLogRtHeader[0] = h;
             }
 
+            mLogRtFieldUpdatePending = false;
             mLogRtSamplesNow.resize(fieldNum);
             mLogRtTimer->start(1000.0 / rateHz);
             mLogRt.clear();
@@ -325,9 +331,7 @@ void PageLogAnalysis::setVesc(VescInterface *vesc)
         });
 
         connect(mVesc->commands(), &Commands::logConfigField, [this](int fieldInd, LOG_HEADER h) {
-            if (mLogRtAppendTime) {
-                fieldInd++;
-            }
+            mLogRtFieldUpdatePending = true;
 
             if (mLogRtHeader.size() <= fieldInd) {
                 mLogRtHeader.resize(fieldInd + 1);
@@ -606,13 +610,13 @@ void PageLogAnalysis::loadVescLog(QVector<LOG_DATA> log)
 void PageLogAnalysis::on_openCsvButton_clicked()
 {
     if (mVesc) {
+        QString dirPath = QSettings().value("pageloganalysis/lastdir", "").toString();
         QString fileName = QFileDialog::getOpenFileName(this,
-                                                        tr("Load CSV File"), "",
+                                                        tr("Load CSV File"), dirPath,
                                                         tr("CSV files (*.csv)"));
 
         if (!fileName.isEmpty()) {
-            QSettings set;
-            set.setValue("pageloganalysis/lastdir",
+            QSettings().setValue("pageloganalysis/lastdir",
                          QFileInfo(fileName).absolutePath());
 
             QFile inFile(fileName);
@@ -739,7 +743,7 @@ void PageLogAnalysis::updateGraphs()
     LocPoint p, p2;
 
     double time = 0;
-    for (const auto &d: mLogTruncated) {
+    foreach (const auto &d, mLogTruncated) {
         if (mInd_t_day >= 0) {
             if (startTime < 0) {
                 startTime = d[mInd_t_day];
@@ -1160,6 +1164,9 @@ void PageLogAnalysis::openLog(QByteArray data)
             QStringList tokens = in.readLine().split(";");
             QVector<double> entry;
             for (int i = 0;i < tokens.size();i++) {
+                if (i >= entryLastData.size()) {
+                   break;
+                }
                 if (!tokens.at(i).isEmpty()) {
                     entryLastData[i] = tokens.at(i).toDouble();
                 }
@@ -1181,7 +1188,7 @@ void PageLogAnalysis::openLog(QByteArray data)
             return;
         }
 
-        for (auto e: mLogHeader) {
+        foreach (auto e, mLogHeader) {
             addDataItem(e.name, !e.isTimeStamp, e.scaleStep, e.scaleMax);
         }
 

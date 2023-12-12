@@ -596,9 +596,7 @@ void Commands::processPacket(QByteArray data)
             values.q3 = vb.vbPopFrontDouble32Auto();
         }
         if (vb.size() >= 1) {
-            if (mask & (uint32_t(1) << 16)) {
-                values.vesc_id = vb.vbPopFrontUint8();
-            }
+            values.vesc_id = vb.vbPopFrontUint8();
         }
 
         emit valuesImuReceived(values, mask);
@@ -2156,10 +2154,11 @@ void Commands::lispSetRunning(bool running)
     emitData(vb);
 }
 
-void Commands::lispGetStats()
+void Commands::lispGetStats(bool all)
 {
     VByteArray vb;
     vb.vbAppendUint8(COMM_LISP_GET_STATS);
+    vb.vbAppendInt8(all);
     emitData(vb);
 }
 

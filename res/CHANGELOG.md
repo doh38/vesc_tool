@@ -11,6 +11,13 @@
 * Ctrl+R to run selected code block LBM in repl.
 * Script editor search improvements.
 * Check if there are unsaved scripts before closing.
+* Better lisp code read import handling.
+* Added filter-box to example and recent lists in script editors.
+* Limit output size in vesc and lbm terminal to prevent problems when printing too much.
+* Use all 3 measured currents in sampled data instead of calculating one.
+* Added support for loading sampled data CSV files.
+
+---
 
 ### 6.02
 #### Released 2023-03-12

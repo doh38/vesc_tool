@@ -63,6 +63,8 @@ PageScripting::PageScripting(QWidget *parent) :
     ui->uploadButton->setIcon(Utility::getIcon("icons/Download-96.png"));
     ui->eraseOnlyButton->setIcon(Utility::getIcon("icons/Delete-96.png"));
     ui->clearUploadTextButton->setIcon(Utility::getIcon("icons/Delete-96.png"));
+    ui->recentFilterClearButton->setIcon(Utility::getIcon("icons/Cancel-96.png"));
+    ui->exampleFilterClearButton->setIcon(Utility::getIcon("icons/Cancel-96.png"));
 
     plusButton->setFlat(true);
     plusButton->setText("New Tab");
@@ -286,6 +288,11 @@ void PageScripting::openRecentList()
             createEditorTab(fileName, file.readAll());
         }
 
+        mRecentFiles.removeAll(fileName);
+        mRecentFiles.append(fileName);
+        updateRecentList();
+        ui->recentList->setCurrentRow(ui->recentList->count() - 1);
+
         file.close();
     } else {
         QMessageBox::critical(this, "Open Recent",
@@ -372,6 +379,8 @@ void PageScripting::updateRecentList()
     for (auto f: mRecentFiles) {
         ui->recentList->addItem(f);
     }
+
+    on_recentFilterEdit_textChanged(ui->recentFilterEdit->text());
 }
 
 void PageScripting::makeEditorConnections(ScriptEditor *editor)
@@ -392,20 +401,18 @@ void PageScripting::makeEditorConnections(ScriptEditor *editor)
         ui->debugEdit->clear();
     });
     connect(editor, &ScriptEditor::fileOpened, [this](QString fileName) {
-        if (!mRecentFiles.contains(fileName)) {
-            mRecentFiles.append(fileName);
-            updateRecentList();
-        }
+        mRecentFiles.removeAll(fileName);
+        mRecentFiles.append(fileName);
+        updateRecentList();
     });
     connect(editor, &ScriptEditor::fileSaved, [editor, this](QString fileName) {
         if (mVesc) {
             mVesc->emitStatusMessage("Saved " + fileName, true);
         }
 
-        if (!mRecentFiles.contains(fileName)) {
-            mRecentFiles.append(fileName);
-            updateRecentList();
-        }
+        mRecentFiles.removeAll(fileName);
+        mRecentFiles.append(fileName);
+        updateRecentList();
 
         setEditorClean(editor);
     });
@@ -776,4 +783,28 @@ void PageScripting::on_calcSizeButton_clicked()
     QMessageBox::information(this, "QML Size",
                              QString("Compressed QML size: %1").
                              arg(qCompress(qmlToRun(false).toUtf8(), 9).size()));
+}
+
+void PageScripting::on_recentFilterEdit_textChanged(const QString &filter)
+{
+    for (int row = 0; row < ui->recentList->count(); ++row) {
+        if (filter.isEmpty()) {
+            ui->recentList->item(row)->setHidden(false);
+        } else {
+            ui->recentList->item(row)->setHidden(!ui->recentList->item(row)->text().
+                                                 contains(filter, Qt::CaseInsensitive));
+        }
+    }
+}
+
+void PageScripting::on_exampleFilterEdit_textChanged(const QString &filter)
+{
+    for (int row = 0; row < ui->exampleList->count(); ++row) {
+        if (filter.isEmpty()) {
+            ui->exampleList->item(row)->setHidden(false);
+        } else {
+            ui->exampleList->item(row)->setHidden(!ui->exampleList->item(row)->text().
+                                                 contains(filter, Qt::CaseInsensitive));
+        }
+    }
 }

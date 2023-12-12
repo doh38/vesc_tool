@@ -32,6 +32,7 @@ PageSampledData::PageSampledData(QWidget *parent) :
 
     ui->rescaleButton->setIcon(Utility::getIcon("icons/expand_off.png"));
     ui->saveDataButton->setIcon(Utility::getIcon("icons/Save as-96.png"));
+    ui->loadDataButton->setIcon(Utility::getIcon("icons/Open Folder-96.png"));
     ui->sampleNowButton->setIcon(Utility::getIcon("icons/3ph_sine.png"));
     ui->sampleStartButton->setIcon(Utility::getIcon("icons/motor.png"));
     ui->sampleStopButton->setIcon(Utility::getIcon("icons/Cancel-96.png"));
@@ -224,7 +225,7 @@ void PageSampledData::timerSlot()
             // Calculate current and voltages
             QVector<double> curr1 = curr1Vector;
             QVector<double> curr2 = curr2Vector;
-            QVector<double> curr3(size);
+            QVector<double> curr3 = curr3Vector;
 
             QVector<double> ph1 = ph1Vector;
             QVector<double> ph2 = ph2Vector;
@@ -235,8 +236,6 @@ void PageSampledData::timerSlot()
             QVector<double> fSw = fSwVector;
 
             for (int i=0;i < curr2.size(); i++) {
-                curr3[i] = -(curr1[i] + curr2[i]);
-
                 if (ui->truncateBox->isChecked()) {
                     if (!(position[i] == 1 || position[i] == 4)) {
                         ph1[i] = 0;
@@ -494,6 +493,13 @@ void PageSampledData::samplesReceived(QByteArray bytes)
 
     tmpCurr1Vector.append(vb.vbPopFrontDouble32Auto());
     tmpCurr2Vector.append(vb.vbPopFrontDouble32Auto());
+
+    if (vb.size() >= 30) {
+        tmpCurr3Vector.append(vb.vbPopFrontDouble32Auto());
+    } else {
+        tmpCurr3Vector.append(-(tmpCurr1Vector.last() + tmpCurr2Vector.last()));
+    }
+
     tmpPh1Vector.append(vb.vbPopFrontDouble32Auto());
     tmpPh2Vector.append(vb.vbPopFrontDouble32Auto());
     tmpPh3Vector.append(vb.vbPopFrontDouble32Auto());
@@ -509,6 +515,7 @@ void PageSampledData::samplesReceived(QByteArray bytes)
     if (tmpCurr1Vector.size() == mSamplesToWait) {
         curr1Vector = tmpCurr1Vector;
         curr2Vector = tmpCurr2Vector;
+        curr3Vector = tmpCurr3Vector;
         ph1Vector = tmpPh1Vector;
         ph2Vector = tmpPh2Vector;
         ph3Vector = tmpPh3Vector;
@@ -640,6 +647,7 @@ void PageSampledData::clearBuffers()
     mSampleInt = 0;
     tmpCurr1Vector.clear();
     tmpCurr2Vector.clear();
+    tmpCurr3Vector.clear();
     tmpPh1Vector.clear();
     tmpPh2Vector.clear();
     tmpPh3Vector.clear();
@@ -682,8 +690,9 @@ void PageSampledData::on_plotModeBox_currentIndexChanged(int index)
 
 void PageSampledData::on_saveDataButton_clicked()
 {
+    QString dirPath = QSettings().value("pagesampleddata/lastdir", "").toString();
     QString fileName = QFileDialog::getSaveFileName(this,
-                                                    tr("Save CSV"), "",
+                                                    tr("Save CSV"), dirPath,
                                                     tr("CSV Files (*.csv)"));
 
     if (!fileName.isEmpty()) {
@@ -697,6 +706,9 @@ void PageSampledData::on_saveDataButton_clicked()
                                   "Could not open\n" + fileName + "\nfor writing");
             return;
         }
+
+        QSettings().setValue("pagesampleddata/lastdir",
+                             QFileInfo(fileName).absolutePath());
 
         QTextStream stream(&file);
         stream.setCodec("UTF-8");
@@ -716,7 +728,7 @@ void PageSampledData::on_saveDataButton_clicked()
             stream << timeVec.at(i) << ";";
             stream << curr1Vector.at(i) << ";";
             stream << curr2Vector.at(i) << ";";
-            stream << -(curr1Vector.at(i) + curr2Vector.at(i)) << ";";
+            stream << curr3Vector.at(i) << ";";
             stream << ph1Vector.at(i) << ";";
             stream << ph2Vector.at(i) << ";";
             stream << ph3Vector.at(i) << ";";
@@ -730,5 +742,117 @@ void PageSampledData::on_saveDataButton_clicked()
         }
 
         file.close();
+    }
+}
+
+void PageSampledData::on_loadDataButton_clicked()
+{
+    QString dirPath = QSettings().value("pagesampleddata/lastdir", "").toString();
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    tr("Load CSV File"), dirPath,
+                                                    tr("CSV files (*.csv)"));
+
+    if (!fileName.isEmpty()) {
+        QSettings().setValue("pagesampleddata/lastdir",
+                             QFileInfo(fileName).absolutePath());
+
+        QFile inFile(fileName);
+        if (inFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QByteArray data = inFile.readAll();
+            inFile.close();
+            QTextStream in(&data);
+            auto tokensLine1 = in.readLine().split(";");
+            if (tokensLine1.size() < 1) {
+                mVesc->emitStatusMessage("Invalid log file", false);
+                return;
+            }
+
+            fSwVector.clear();
+            curr1Vector.clear();
+            curr2Vector.clear();
+            curr3Vector.clear();
+            ph1Vector.clear();
+            ph2Vector.clear();
+            ph3Vector.clear();
+            currTotVector.clear();
+            vZeroVector.clear();
+            phaseArray.clear();
+            statusArray.clear();
+
+            int indT = -1;
+            int indI1 = -1;
+            int indI2 = -1;
+            int indI3 = -1;
+            int indV1 = -1;
+            int indV2 = -1;
+            int indV3 = -1;
+            int indI_tot = -1;
+            int indV_zero = -1;
+            int indPhase = -1;
+
+            for (int i = 0;i < tokensLine1.size();i++) {
+                QString token = tokensLine1.at(i).toLower().replace(" ", "");
+                if (token == "t") {
+                    indT = i;
+                } else if (token == "i1") {
+                    indI1 = i;
+                } else if (token == "i2") {
+                    indI2 = i;
+                } else if (token == "i3") {
+                    indI3 = i;
+                } else if (token == "v1") {
+                    indV1 = i;
+                } else if (token == "v2") {
+                    indV2 = i;
+                } else if (token == "v3") {
+                    indV3 = i;
+                } else if (token == "i_tot") {
+                    indI_tot = i;
+                } else if (token == "v_zero") {
+                    indV_zero = i;
+                } else if (token == "phase") {
+                    indPhase = i;
+                }
+            }
+
+            double tLast = -1.0;
+            double tLastSet = false;
+
+            while (!in.atEnd()) {
+                QStringList tokens = in.readLine().split(";");
+
+                if (indT >= 0 && tokens.size() > indT) {
+                    double tNow = tokens.at(indT).toDouble();
+                    if (tLastSet) {
+                        fSwVector.append(1.0 / (tNow - tLast));
+                    }
+
+                    tLast = tNow;
+                    tLastSet = true;
+                } else {
+                    fSwVector.append(15000.0);
+                }
+
+                curr1Vector.append((indI1 >= 0 && tokens.size() > indI1) ? tokens.at(indI1).toDouble() : 0.0);
+                curr2Vector.append((indI2 >= 0 && tokens.size() > indI2) ? tokens.at(indI2).toDouble() : 0.0);
+                curr3Vector.append((indI3 >= 0 && tokens.size() > indI3) ? tokens.at(indI3).toDouble() : 0.0);
+                ph1Vector.append((indV1 >= 0 && tokens.size() > indV1) ? tokens.at(indV1).toDouble() : 0.0);
+                ph2Vector.append((indV2 >= 0 && tokens.size() > indV2) ? tokens.at(indV2).toDouble() : 0.0);
+                ph3Vector.append((indV3 >= 0 && tokens.size() > indV3) ? tokens.at(indV3).toDouble() : 0.0);
+                currTotVector.append((indI_tot >= 0 && tokens.size() > indI_tot) ? tokens.at(indI_tot).toDouble() : 0.0);
+                vZeroVector.append((indV_zero >= 0 && tokens.size() > indV_zero) ? tokens.at(indV_zero).toDouble() : 0.0);
+                phaseArray.append((indPhase >= 0 && tokens.size() > indPhase) ? quint8(tokens.at(indPhase).toDouble() / 360.0 * 250.0) : 0);
+                statusArray.append(char(0));
+            }
+
+            if (fSwVector.size() < curr1Vector.size() && fSwVector.size() > 0) {
+                auto last = fSwVector.last();
+                fSwVector.append(last);
+            }
+
+            mDoReplot = true;
+            mDoFilterReplot = true;
+            mDoRescale = true;
+        }
     }
 }

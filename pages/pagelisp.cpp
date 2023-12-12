@@ -52,6 +52,8 @@ PageLisp::PageLisp(QWidget *parent) :
     ui->eraseButton->setIcon(Utility::getIcon("icons/Delete-96.png"));
     ui->replHelpButton->setIcon(Utility::getIcon("icons/Help-96.png"));
     ui->streamButton->setIcon(Utility::getIcon("icons/Download-96.png"));
+    ui->recentFilterClearButton->setIcon(Utility::getIcon("icons/Cancel-96.png"));
+    ui->exampleFilterClearButton->setIcon(Utility::getIcon("icons/Cancel-96.png"));
 
     QIcon mycon = Utility::getIcon( "icons/expand_off.png");
     mycon.addPixmap(Utility::getIcon("icons/expand_on.png"), QIcon::Normal, QIcon::On);
@@ -146,14 +148,14 @@ PageLisp::PageLisp(QWidget *parent) :
         removeEditor(mainEditor);
     });
 
-    ui->splitter->setSizes(QList<int>({1000, 600}));
+    ui->splitter->setSizes(QList<int>({1000, 100}));
     ui->splitter_2->setSizes(QList<int>({1000, 600}));
 
     mPollTimer.start(1000 / ui->pollRateBox->value());
     connect(&mPollTimer, &QTimer::timeout, [this]() {
-        if (ui->pollBox->isChecked()) {
+        if (!ui->pollOffButton->isChecked()) {
             if (mVesc) {
-                mVesc->commands()->lispGetStats();
+                mVesc->commands()->lispGetStats(ui->pollAllButton->isChecked());
             }
         }
     });
@@ -352,6 +354,8 @@ void PageLisp::updateRecentList()
     for (auto f: mRecentFiles) {
         ui->recentList->addItem(f);
     }
+
+    on_recentFilterEdit_textChanged(ui->recentFilterEdit->text());
 }
 
 void PageLisp::makeEditorConnections(ScriptEditor *editor)
@@ -363,20 +367,18 @@ void PageLisp::makeEditorConnections(ScriptEditor *editor)
         ui->debugEdit->clear();
     });
     connect(editor, &ScriptEditor::fileOpened, [this](QString fileName) {
-        if (!mRecentFiles.contains(fileName)) {
-            mRecentFiles.append(fileName);
-            updateRecentList();
-        }
+        mRecentFiles.removeAll(fileName);
+        mRecentFiles.append(fileName);
+        updateRecentList();
     });
     connect(editor, &ScriptEditor::fileSaved, [editor, this](QString fileName) {
         if (mVesc) {
             mVesc->emitStatusMessage("Saved " + fileName, true);
         }
 
-        if (!mRecentFiles.contains(fileName)) {
-            mRecentFiles.append(fileName);
-            updateRecentList();
-        }
+        mRecentFiles.removeAll(fileName);
+        mRecentFiles.append(fileName);
+        updateRecentList();
 
         setEditorClean(editor);
     });
@@ -565,6 +567,11 @@ void PageLisp::openRecentList()
             createEditorTab(fileName, file.readAll());
         }
 
+        mRecentFiles.removeAll(fileName);
+        mRecentFiles.append(fileName);
+        updateRecentList();
+        ui->recentList->setCurrentRow(ui->recentList->count() - 1);
+
         file.close();
     } else {
         QMessageBox::critical(this, "Open Recent",
@@ -677,14 +684,19 @@ void PageLisp::on_uploadButton_clicked()
 
 void PageLisp::on_readExistingButton_clicked()
 {
-    auto code = mLoader.lispRead(this);
+    QProgressDialog dialog(tr("Reading Code..."), QString(), 0, 0, this);
+    dialog.setWindowModality(Qt::WindowModal);
+    dialog.show();
+
+    QString lispPath = "From VESC";
+    auto code = mLoader.lispRead(this, lispPath);
 
     if (!code.isEmpty()) {
         if (ui->mainEdit->codeEditor()->toPlainText().isEmpty()) {
             ui->mainEdit->codeEditor()->setPlainText(code);
             ui->fileTabs->setTabText(ui->fileTabs->indexOf(ui->mainEdit), "From VESC");
         } else {
-            createEditorTab("From VESC", code);
+            createEditorTab(lispPath, code);
         }
     }
 }
@@ -755,4 +767,28 @@ void PageLisp::on_streamButton_clicked()
     }
 
     mLoader.lispStream(codeStr.toLocal8Bit(), ui->streamModeBox->currentIndex());
+}
+
+void PageLisp::on_recentFilterEdit_textChanged(const QString &filter)
+{
+    for (int row = 0; row < ui->recentList->count(); ++row) {
+        if (filter.isEmpty()) {
+            ui->recentList->item(row)->setHidden(false);
+        } else {
+            ui->recentList->item(row)->setHidden(!ui->recentList->item(row)->text().
+                                                 contains(filter, Qt::CaseInsensitive));
+        }
+    }
+}
+
+void PageLisp::on_exampleFilterEdit_textChanged(const QString &filter)
+{
+    for (int row = 0; row < ui->exampleList->count(); ++row) {
+        if (filter.isEmpty()) {
+            ui->exampleList->item(row)->setHidden(false);
+        } else {
+            ui->exampleList->item(row)->setHidden(!ui->exampleList->item(row)->text().
+                                                 contains(filter, Qt::CaseInsensitive));
+        }
+    }
 }

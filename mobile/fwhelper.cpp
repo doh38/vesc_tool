@@ -59,6 +59,8 @@ QVariantMap FwHelper::getHardwares(FW_RX_PARAMS params, QString hw)
         hws.insert(params.hw, "://res/firmwares_esp/ESP32-C3/VESC Express");
     } else if (params.hw == "Devkit C3") {
         hws.insert(params.hw, "://res/firmwares_esp/ESP32-C3/DevKitM-1");
+    } else if (params.hw == "STR-DCDC") {
+        hws.insert(params.hw, "://res/firmwares_custom_module/str-dcdc");
     }
 
     return hws;
@@ -72,7 +74,7 @@ QVariantMap FwHelper::getFirmwares(QString hw)
     while (it.hasNext()) {
         QFileInfo fi(it.next());
         if (fi.fileName().toLower() == "vesc_default.bin" ||
-                fi.fileName().toLower() == "app.bin") {
+                fi.fileName().toLower() == "vesc_express.bin") {
             fws.insert(fi.fileName(), fi.absoluteFilePath());
         }
     }
@@ -105,7 +107,7 @@ QVariantMap FwHelper::getBootloaders(FW_RX_PARAMS params, QString hw)
             if (params.hw == "hm1") {
                 blDir = "://res/bootloaders_bms";
             } else {
-                blDir = "://res/bootloaders_custom_module";
+                blDir = "://res/bootloaders_custom_module/stm32g431";
             }
         }
         break;
